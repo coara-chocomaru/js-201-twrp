@@ -8,6 +8,8 @@
 LOCAL_PATH := $(call my-dir)
 
 ifeq ($(TARGET_DEVICE),js201)
+LOCAL_CFLAGS += -DRECOVERY_TOUCHSCREEN_SWAP_XY
+LOCAL_CFLAGS += -DRECOVERY_TOUCHSCREEN_FLIP_X
 JAVA_SDK_ENFORCEMENT_ERROR := false
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif
