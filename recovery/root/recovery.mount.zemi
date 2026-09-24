@@ -1,0 +1,8 @@
+# This software is contributed or developed by KYOCERA Corporation.
+# (C) 2016 KYOCERA Corporation
+
+#<src>                                               <mnt_point>  <type>  <mnt_flags and options>  <fs_mgr_flags>
+
+# When device boots as Zemi-mode, it mounts system image of android-mode to "/dmysys" instead of "/system".
+# This mount point is necessary in order to refer information(such as build.prop) inside non-current system image.
+/dev/block/bootdevice/by-name/system_android         /system2      ext4    ro,barrier=1,discard                                            wait
