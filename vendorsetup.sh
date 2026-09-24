@@ -1,0 +1,4 @@
+add_lunch_combo omni_js201-eng
+add_lunch_combo omni_js201-userdebug
+
+export ALLOW_MISSING_DEPENDENCIES=true
