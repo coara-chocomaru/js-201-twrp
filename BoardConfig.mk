@@ -130,8 +130,7 @@ BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_FSTAB_VERSION := 2
 
 SELINUX_IGNORE_NEVERALLOWS := true
-TW_BRIGHTNESS_PATH := "/sys/devices/soc.0/1a00000.qcom,mdss_mdp/qcom,mdss_fb_primary.122/leds/backlightinfo/brightness"
-
+TW_BRIGHTNESS_PATH := /sys/class/leds/backlightinfo/brightness
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 128 
 TW_USE_TOOLBOX := true
