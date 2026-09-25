@@ -5,12 +5,6 @@ TARGET_DEVICE := js201
 TARGET_SOC := msm8916
 TARGET_BOARD_PLATFORM := Qualcomm
 
-
-BOARD_ROOT_EXTRA_FOLDERS += \
-    pstore \
-    oem
-
-
 # Build options
 ALLOW_MISSING_DEPENDENCIES := true
 BOARD_SUPPRESS_SECURE_ERASE := true
