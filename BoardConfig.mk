@@ -7,7 +7,8 @@ TARGET_BOARD_PLATFORM := Qualcomm
 
 
 BOARD_ROOT_EXTRA_FOLDERS += \
-    pstore
+    pstore \
+    oem
 
 
 # Build options
