@@ -29,5 +29,4 @@
 /dev/block/platform/7824900.sdhci/by-name/system       /system      ext4    ro,barrier=1                flags=display="System",backup=1,wipeingui=1
 /dev/block/platform/7824900.sdhci/by-name/userdata     /data        ext4    nosuid,nodev,barrier=1,noauto_da_alloc    flags=display="Data",backup=1,wipeingui=1,encryptable=footer
 /dev/block/platform/7824900.sdhci/by-name/cache        /cache       ext4    nosuid,nodev,barrier=1      flags=display="Cache",backup=1,wipeingui=1
-/dev/block/platform/7824900.sdhci/by-name/oem          /oem         ext4    ro,barrier=1                flags=display="OEM",backup=1,wipeingui=1
 /dev/block/mmcblk1p1                       /external_sd vfat    defaults    flags=display="MicroSD",storage;removable
