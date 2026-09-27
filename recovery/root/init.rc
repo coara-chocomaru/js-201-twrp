@@ -62,6 +62,7 @@ on boot
     hostname localhost
     domainname localdomain
     class_start default
+    exec -- /sbin/mmc64_writeprotect_native
 
 # Load properties, pre-Android 6.0
 on load_all_props_action
