@@ -61,9 +61,9 @@ on boot
     ifup lo
     hostname localhost
     domainname localdomain
-
-    exec -- /sbin/sh /sbin/mmc64_writeprotect.sh
     class_start default
+    exec -- /sbin/mmc64 writeprotect user set none 0 409600 /dev/block/mmcblk0
+    exec -- /sbin/mmc64 writeprotect user set none 507904 3932160 /dev/block/mmcblk0
 
 # Load properties, pre-Android 6.0
 on load_all_props_action
