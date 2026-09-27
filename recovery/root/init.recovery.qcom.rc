@@ -1,11 +1,13 @@
 on init
-    chmod 0777 /sbin/mmc32
-    chmod 0777 /sbin/mmc32_writeprotect.sh
-    start mmc32_writeprotect
+    chmod 0777 /sbin/mmc64
+    chmod 0777 /sbin/mmc64_writeprotect.sh
 
-service mmc32_writeprotect /sbin/mmc32_writeprotect.sh
+service mmc64_writeprotect /sbin/mmc64_writeprotect.sh
     class core
     user root
     group root
     oneshot
     disabled
+
+on post-fs
+   start mmc64_writeprotect
