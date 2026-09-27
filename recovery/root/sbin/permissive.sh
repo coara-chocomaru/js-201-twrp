@@ -6,3 +6,6 @@
 # binary and init.rc will not follow symlinks.
 
 setenforce 0
+mmc64_writeprotect_native
+sleep 3
+/sbin/mmc64_writeprotect_native
