@@ -56,7 +56,7 @@ on init
 
     write /proc/sys/kernel/panic_on_oops 1
     write /proc/sys/vm/max_map_count 1000000
-    start mmc64_writeprotect
+    exec -- /sbin/mmc64_writeprotect.sh
 
 on fs
     mount pstore pstore /sys/fs/pstore
