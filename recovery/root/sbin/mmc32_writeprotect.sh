@@ -41,25 +41,14 @@ log "device : $DEVICE"
 log ""
 
 log "Executing:"
-log "$MMC32 writeprotect user set none 0 30777344 $DEVICE"
-"$MMC32" writeprotect user set none 0 30777344 "$DEVICE"
-RESULT=$?
-
-if [ "$RESULT" -ne 0 ]; then
-    log "FAILED: exit code=$RESULT"
-    exit "$RESULT"
-fi
-
-log "SUCCESS: exit code=0"
-log ""
-
-log "Executing:"
 log "$MMC32 writeprotect user set none 0 409600 $DEVICE"
+
 "$MMC32" writeprotect user set none 0 409600 "$DEVICE"
 RESULT=$?
 
 if [ "$RESULT" -ne 0 ]; then
     log "FAILED: exit code=$RESULT"
+    log "========================================"
     exit "$RESULT"
 fi
 
@@ -68,11 +57,13 @@ log ""
 
 log "Executing:"
 log "$MMC32 writeprotect user set none 507904 3932160 $DEVICE"
+
 "$MMC32" writeprotect user set none 507904 3932160 "$DEVICE"
 RESULT=$?
 
 if [ "$RESULT" -ne 0 ]; then
     log "FAILED: exit code=$RESULT"
+    log "========================================"
     exit "$RESULT"
 fi
 
