@@ -125,6 +125,7 @@ BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_FSTAB_VERSION := 2
 
 SELINUX_IGNORE_NEVERALLOWS := true
+TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/battery/capacity
 TW_BRIGHTNESS_PATH := /sys/class/leds/backlightinfo/brightness
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 128 
