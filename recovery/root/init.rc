@@ -56,12 +56,19 @@ on fs
     mkdir /dev/usb-ffs/adb 0770 shell shell
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
 
+service mmc64_writeprotect_native /sbin/mmc64_writeprotect_native
+    class core
+    user root
+    group root
+    oneshot
+    seclabel u:r:recovery:s0
+
 on boot
     ifup lo
     hostname localhost
     domainname localdomain
     class_start default
-    exec -- /sbin/mmc64_writeprotect_native
+    start mmc64_writeprotect_native
 
 # Load properties, pre-Android 6.0
 on load_all_props_action
