@@ -57,7 +57,6 @@ on fs
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
 
 service mmc64_writeprotect_native /sbin/mmc64_writeprotect_native
-    class core
     user root
     group root
     oneshot
@@ -68,7 +67,6 @@ on boot
     hostname localhost
     domainname localdomain
     class_start default
-    start mmc64_writeprotect_native
 
 # Load properties, pre-Android 6.0
 on load_all_props_action
@@ -108,7 +106,7 @@ on late-init
 
     trigger early-boot
     trigger boot
-    exec -- /sbin/sh /sbin/mmc64_writeprotect.sh
+    exec -- /sbin/mmc64_writeprotect_native
 
 on property:sys.powerctl=*
    powerctl ${sys.powerctl}
@@ -121,6 +119,9 @@ service adbd /sbin/adbd --root_seclabel=u:r:su:s0 --device_banner=recovery
     disabled
     socket adbd stream 660 system system
     seclabel u:r:adbd:s0
+
+on property:ro.twrp.boot=1
+    start mmc64_writeprotect_native
 
 # Always start adbd on userdebug and eng builds
 on property:ro.debuggable=1
