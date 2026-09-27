@@ -1,13 +1,13 @@
 #!/sbin/sh
 
-MMC32="/sbin/mmc32"
+MMC64="/sbin/mmc64"
 DEVICE="/dev/block/mmcblk0"
-LOGFILE="/tmp/mmc32_writeprotect.log"
+LOGFILE="/tmp/mmc64_writeprotect.log"
 
 log()
 {
-    echo "[mmc32-writeprotect] $*"
-    echo "[mmc32-writeprotect] $*" >> "$LOGFILE"
+    echo "[mmc64-writeprotect] $*"
+    echo "[mmc64-writeprotect] $*" >> "$LOGFILE"
 }
 
 fail()
@@ -17,15 +17,15 @@ fail()
 }
 
 log "========================================"
-log "mmc32 write protection configuration"
+log "mmc64 write protection configuration"
 log "========================================"
 
-if [ ! -e "$MMC32" ]; then
-    fail "$MMC32 does not exist"
+if [ ! -e "$MMC64" ]; then
+    fail "$MMC64 does not exist"
 fi
 
-if [ ! -x "$MMC32" ]; then
-    fail "$MMC32 is not executable"
+if [ ! -x "$MMC64" ]; then
+    fail "$MMC64 is not executable"
 fi
 
 if [ ! -e "$DEVICE" ]; then
@@ -36,14 +36,14 @@ if [ ! -b "$DEVICE" ]; then
     fail "$DEVICE is not a block device"
 fi
 
-log "mmc32 : $MMC32"
+log "mmc64 : $MMC64"
 log "device : $DEVICE"
 log ""
 
 log "Executing:"
-log "$MMC32 writeprotect user set none 0 409600 $DEVICE"
+log "$MMC64 writeprotect user set none 0 409600 $DEVICE"
 
-"$MMC32" writeprotect user set none 0 409600 "$DEVICE"
+"$MMC64" writeprotect user set none 0 409600 "$DEVICE"
 RESULT=$?
 
 if [ "$RESULT" -ne 0 ]; then
@@ -56,9 +56,9 @@ log "SUCCESS: exit code=0"
 log ""
 
 log "Executing:"
-log "$MMC32 writeprotect user set none 507904 3932160 $DEVICE"
+log "$MMC64 writeprotect user set none 507904 3932160 $DEVICE"
 
-"$MMC32" writeprotect user set none 507904 3932160 "$DEVICE"
+"$MMC64" writeprotect user set none 507904 3932160 "$DEVICE"
 RESULT=$?
 
 if [ "$RESULT" -ne 0 ]; then
@@ -71,7 +71,7 @@ log "SUCCESS: exit code=0"
 log ""
 
 log "========================================"
-log "All mmc32 writeprotect commands completed"
+log "All mmc64 writeprotect commands completed"
 log "========================================"
 
 exit 0
