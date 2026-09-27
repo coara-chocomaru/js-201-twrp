@@ -62,8 +62,8 @@ on boot
     hostname localhost
     domainname localdomain
 
+    exec -- /sbin/sh /sbin/mmc64_writeprotect.sh
     class_start default
-    exec -- /sbin/mmc64_writeprotect.sh
 
 # Load properties, pre-Android 6.0
 on load_all_props_action
@@ -103,6 +103,7 @@ on late-init
 
     trigger early-boot
     trigger boot
+    exec -- /sbin/sh /sbin/mmc64_writeprotect.sh
 
 on property:sys.powerctl=*
    powerctl ${sys.powerctl}
