@@ -6,4 +6,4 @@ service mmc32_writeprotect /sbin/mmc32_writeprotect.sh
     disabled
 
 on post-fs
-    start mmc32_writeprotect
+   start mmc32_writeprotect
