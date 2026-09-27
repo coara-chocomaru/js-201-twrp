@@ -56,12 +56,6 @@ on fs
     mkdir /dev/usb-ffs/adb 0770 shell shell
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
 
-service mmc64_writeprotect_native /sbin/mmc64_writeprotect_native
-    user root
-    group root
-    oneshot
-    seclabel u:r:recovery:s0
-
 on boot
     ifup lo
     hostname localhost
@@ -106,7 +100,6 @@ on late-init
 
     trigger early-boot
     trigger boot
-    exec -- /sbin/mmc64_writeprotect_native
 
 on property:sys.powerctl=*
    powerctl ${sys.powerctl}
@@ -121,7 +114,7 @@ service adbd /sbin/adbd --root_seclabel=u:r:su:s0 --device_banner=recovery
     seclabel u:r:adbd:s0
 
 on property:ro.twrp.boot=1
-    start mmc64_writeprotect_native
+    exec -- /sbin/mmc64_writeprotect_native
 
 # Always start adbd on userdebug and eng builds
 on property:ro.debuggable=1
