@@ -38,6 +38,7 @@ service mmc64_writeprotect /sbin/sh /sbin/mmc64_writeprotect.sh
 on init
     export PATH /sbin:/system/bin
     export LD_LIBRARY_PATH /sbin
+    export ENV /etc/profile
 
     export ANDROID_ROOT /system
     export ANDROID_DATA /data
